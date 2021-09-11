@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/titleFragment">
 
     <fragment
         android:id="@+id/FirstFragment"
@@ -25,4 +25,18 @@
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/titleFragment"
+        android:name="com.kyomurin.android.numberspuzzle.TitleFragment"
+        android:label="fragment_title"
+        tools:layout="@layout/fragment_title" >
+        <action
+            android:id="@+id/action_titleFragment_to_easyFiveFragment"
+            app:destination="@id/easyFiveFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/easyFiveFragment"
+        android:name="com.kyomurin.android.numberspuzzle.EasyFiveFragment"
+        android:label="fragment_easy_five"
+        tools:layout="@layout/fragment_easy_five" />
 </navigation>
