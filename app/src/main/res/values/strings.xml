@@ -1,20 +1,15 @@
 <resources>
     <string name="app_name">NumbersPuzzle</string>
     <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_label">NUMBERS PUZZLE</string>
+    <string name="game_five_easy_label">5x5 NORMAL</string>
+    <string name="result_label">RESULT</string>
+    <string name="how_to_play_label">HOW TO PLAY</string>
 
     <string name="numbers_puzzle_title">数字パズル</string>
     <string name="start_button_text">スタート</string>
-    <string name="how_to_play_button_text">遊び方</string>
+    <string name="how_to_play_text">遊び方</string>
 
     <string name="select_radio_game">数字の数を選択</string>
     <string name="select_radio_diff">難易度を選択</string>
@@ -23,14 +18,18 @@
     <string name="game_six">6x6</string>
     <string name="game_seven">7x7</string>
 
-    <string name="easy">普通</string>
-    <string name="hard">難しい</string>
+    <string name="easy">NORMAL</string>
+    <string name="hard">HARD</string>
 
     <string name="game_result">ミス数</string>
-
     <string name="dialog_title">結果</string>
     <string name="dialog_massage">結果の内容：ミスの数など</string>
 
+    <string name="result_title">結果発表</string>
     <string name="return_button_text">タイトルへ戻る</string>
+    <string name="total_game_count_text_before">あなたはこれまでに合計</string>
+    <string name="total_game_count_text_after">回暇をつぶしました</string>
+
+    <string name="how_to_play_content">数字を１から順にタップしましょう\n\n全ての数字を消したらゲームクリアとなります</string>
 
 </resources>

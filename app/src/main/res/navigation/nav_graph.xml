@@ -6,37 +6,40 @@
     app:startDestination="@id/titleFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.kyomurin.android.numberspuzzle.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.kyomurin.android.numberspuzzle.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/titleFragment"
         android:name="com.kyomurin.android.numberspuzzle.TitleFragment"
-        android:label="fragment_title"
+        android:label="@string/title_label"
         tools:layout="@layout/fragment_title" >
         <action
             android:id="@+id/action_titleFragment_to_easyFiveFragment"
             app:destination="@id/easyFiveFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_howToPlayFragment"
+            app:destination="@id/howToPlayFragment" />
     </fragment>
     <fragment
         android:id="@+id/easyFiveFragment"
         android:name="com.kyomurin.android.numberspuzzle.EasyFiveFragment"
-        android:label="fragment_easy_five"
-        tools:layout="@layout/fragment_easy_five" />
+        android:label="@string/game_five_easy_label"
+        tools:layout="@layout/fragment_easy_five" >
+        <action
+            android:id="@+id/action_easyFiveFragment_to_resultFragment"
+            app:destination="@id/resultFragment"
+            app:popUpTo="@id/easyFiveFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.kyomurin.android.numberspuzzle.ResultFragment"
+        android:label="@string/result_label"
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_resultFragment_to_titleFragment"
+            app:destination="@id/titleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/howToPlayFragment"
+        android:name="com.kyomurin.android.numberspuzzle.HowToPlayFragment"
+        android:label="@string/how_to_play_label"
+        tools:layout="@layout/fragment_how_to_play" />
 </navigation>

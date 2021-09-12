@@ -6,6 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
+import androidx.preference.PreferenceManager
 import com.kyomurin.android.numberspuzzle.databinding.FragmentEasyFiveBinding
 
 class EasyFiveFragment : Fragment() {
@@ -20,6 +23,8 @@ class EasyFiveFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        Log.i("check", "EasyFiveFragment onCreateView() called")
+
         _binding =FragmentEasyFiveBinding.inflate(inflater, container, false)
         return binding.root
 
@@ -27,6 +32,8 @@ class EasyFiveFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        Log.i("check", "EasyFiveFragment onViewCreated() called")
 
         val temp = createButtonList()
 
@@ -66,9 +73,17 @@ class EasyFiveFragment : Fragment() {
 
     private fun createButtonList() : List<Int> {
 
+        Log.i("check", "EasyFiveFragment createButtonList() called")
+
         val nums : List<Int> = listOf<Int>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
         11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25)
         val numbersList = nums.shuffled()
+
+        val buttonsList: List<String> = listOf<String>("button1", "button2", "button3", "button4", "button5",
+            "button6", "button7", "button8", "button9", "button10",
+            "button11", "button12", "button13", "button14", "button15",
+            "button16", "button17", "button18", "button19", "button20",
+            "button21", "button22", "button23", "button24", "button25", )
 
         binding.button1.text = numbersList[0].toString()
         binding.button2.text = numbersList[1].toString()
@@ -104,7 +119,8 @@ class EasyFiveFragment : Fragment() {
     }
 
     private fun onButtonClick(view: View, numbersList: List<Int>) {
-        var text = binding.txMistaksCount
+
+        Log.i("check", "EasyFiveFragment onButtonClick() called")
 
         when (view.id) {
             R.id.button1 -> {
@@ -115,7 +131,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
             R.id.button2 -> {
                 if (numbersList[1] == ans) {
@@ -125,7 +140,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
             R.id.button3 -> {
                 if (numbersList[2] == ans) {
@@ -135,7 +149,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
             R.id.button4 -> {
                 if (numbersList[3] == ans) {
@@ -145,7 +158,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
             R.id.button5 -> {
                 if (numbersList[4] == ans) {
@@ -155,7 +167,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
 
             R.id.button6 -> {
@@ -166,7 +177,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
             R.id.button7 -> {
                 if (numbersList[6] == ans) {
@@ -176,7 +186,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
             R.id.button8 -> {
                 if (numbersList[7] == ans) {
@@ -186,7 +195,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
             R.id.button9 -> {
                 if (numbersList[8] == ans) {
@@ -196,7 +204,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
             R.id.button10 -> {
                 if (numbersList[9] == ans) {
@@ -206,7 +213,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
 
             R.id.button11 -> {
@@ -217,7 +223,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
             R.id.button12 -> {
                 if (numbersList[11] == ans) {
@@ -227,7 +232,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
             R.id.button13 -> {
                 if (numbersList[12] == ans) {
@@ -237,7 +241,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
             R.id.button14 -> {
                 if (numbersList[13] == ans) {
@@ -247,7 +250,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
             R.id.button15 -> {
                 if (numbersList[14] == ans) {
@@ -257,7 +259,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
 
             R.id.button16 -> {
@@ -268,7 +269,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
             R.id.button17 -> {
                 if (numbersList[16] == ans) {
@@ -278,7 +278,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
             R.id.button18 -> {
                 if (numbersList[17] == ans) {
@@ -288,7 +287,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
             R.id.button19 -> {
                 if (numbersList[18] == ans) {
@@ -298,7 +296,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
             R.id.button20 -> {
                 if (numbersList[19] == ans) {
@@ -308,7 +305,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
 
             R.id.button21 -> {
@@ -319,7 +315,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
             R.id.button22 -> {
                 if (numbersList[21] == ans) {
@@ -329,7 +324,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
             R.id.button23 -> {
                 if (numbersList[22] == ans) {
@@ -339,7 +333,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
             R.id.button24 -> {
                 if (numbersList[23] == ans) {
@@ -349,7 +342,6 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
             R.id.button25 -> {
                 if (numbersList[24] == ans) {
@@ -359,20 +351,31 @@ class EasyFiveFragment : Fragment() {
                 } else {
                     mistakesCount += 1
                 }
-                text.text = mistakesCount.toString()
             }
         }
 
         if (ans == 26) {
-            binding.txTemp.text = "FINISH!!"
-//            val dialogFragment = ResultDialogFragment()
-//
-//            dialogFragment.show(, "ResultDialogFragment")
+
+            saveData(mistakesCount)
+            findNavController().navigate(R.id.action_easyFiveFragment_to_resultFragment)
         }
+    }
+
+    private fun saveData(counts: Int) {
+        val pref = PreferenceManager.getDefaultSharedPreferences(activity)
+        val total = pref.getInt("TOTAL", 0)
+
+        val editor = pref.edit()
+        editor.putInt("COUNT", counts)
+            .putInt("TOTAL", total+1)
+            .apply()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+
+        Log.i("check", "EasyFiveFragment onDestroyView() called")
+
         _binding = null
     }
 }

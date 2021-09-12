@@ -11,19 +11,25 @@
         android:id="@+id/txTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/button_margin"
         android:text="@string/numbers_puzzle_title"
         android:textSize="@dimen/big_text"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/basic_margin"
+        android:layout_marginEnd="@dimen/basic_margin"
+        android:layout_marginBottom="@dimen/basic_margin"
         android:text="@string/start_button_text"
+        android:textSize="@dimen/normal_text"
+        android:textStyle="bold"
+        app:backgroundTint="@color/my_light_green"
         app:layout_constraintBottom_toTopOf="@+id/btHowToPlay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -32,8 +38,11 @@
         android:id="@+id/btHowToPlay"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="@string/how_to_play_button_text"
+        android:layout_marginBottom="@dimen/button_margin"
+        android:text="@string/how_to_play_text"
+        android:textSize="@dimen/normal_text"
+        android:textStyle="bold"
+        app:backgroundTint="@color/my_green_accent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/btStart"
         app:layout_constraintHorizontal_bias="1.0"
@@ -43,38 +52,42 @@
         android:id="@+id/txGameSelect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginBottom="@dimen/basic_text"
         android:text="@string/select_radio_game"
-        app:layout_constraintEnd_toEndOf="@+id/radioGroupGame"
-        app:layout_constraintStart_toStartOf="@+id/radioGroupGame"
-        app:layout_constraintTop_toBottomOf="@+id/txTitle" />
+        android:textSize="@dimen/basic_text"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroupGame"
+        app:layout_constraintStart_toStartOf="@+id/radioGroupGame" />
 
     <RadioGroup
         android:id="@+id/radioGroupGame"
-        android:layout_width="159dp"
-        android:layout_height="141dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/button_margin"
+        app:layout_constraintBottom_toTopOf="@+id/btStart"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txGameSelect">
+        app:layout_constraintTop_toBottomOf="@+id/txTitle">
 
         <RadioButton
             android:id="@+id/rbFive"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/game_five" />
+            android:checked="true"
+            android:text="@string/game_five"
+            android:textSize="@dimen/normal_text" />
 
         <RadioButton
             android:id="@+id/rbSix"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/game_six" />
+            android:text="@string/game_six"
+            android:textSize="@dimen/normal_text" />
 
         <RadioButton
             android:id="@+id/rbSeven"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/game_seven" />
+            android:text="@string/game_seven"
+            android:textSize="@dimen/normal_text" />
 
     </RadioGroup>
 
@@ -83,30 +96,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/select_radio_diff"
+        android:textSize="@dimen/basic_text"
         app:layout_constraintBaseline_toBaselineOf="@+id/txGameSelect"
-        app:layout_constraintEnd_toEndOf="@+id/radioGroupDiff"
         app:layout_constraintStart_toStartOf="@+id/radioGroupDiff" />
 
     <RadioGroup
         android:id="@+id/radioGroupDiff"
-        android:layout_width="176dp"
-        android:layout_height="109dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/button_margin"
+        android:layout_marginTop="@dimen/basic_margin"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/radioGroupGame"
         app:layout_constraintTop_toBottomOf="@+id/txGameSelect">
 
         <RadioButton
             android:id="@+id/rbEasy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/easy" />
+            android:checked="true"
+            android:text="@string/easy"
+            android:textSize="@dimen/normal_text" />
 
         <RadioButton
             android:id="@+id/rbHard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/hard" />
+            android:text="@string/hard"
+            android:textSize="@dimen/normal_text" />
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
