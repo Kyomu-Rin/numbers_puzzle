@@ -1,6 +1,7 @@
 package com.kyomurin.android.numberspuzzle
 
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -16,6 +17,7 @@ class TitleFragment : Fragment() {
     private val binding get() = _binding!!
 
     var selectedGame = 5
+    var diff = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,9 +46,22 @@ class TitleFragment : Fragment() {
             }
         }
 
+        // 難易度NORMALが1、HARDが2
+        val diffGroup: RadioGroup = view.findViewById(R.id.radioGroupDiff)
+        diffGroup.setOnCheckedChangeListener{_, checkedId: Int ->
+            when (checkedId) {
+                R.id.rbEasy -> diff = 1
+                else -> diff = 2
+            }
+        }
+
         binding.btStart.setOnClickListener {
             if (selectedGame == 5) {
-                findNavController().navigate(R.id.action_titleFragment_to_easyFiveFragment)
+                if (diff == 1) {
+                    findNavController().navigate(R.id.action_titleFragment_to_easyFiveFragment)
+                } else {
+                    findNavController().navigate(R.id.action_titleFragment_to_hardFiveFragment)
+                }
             } else {
                 Toast.makeText(activity, "others", Toast.LENGTH_LONG).show()
             }

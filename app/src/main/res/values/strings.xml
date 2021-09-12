@@ -4,6 +4,7 @@
 
     <string name="title_label">NUMBERS PUZZLE</string>
     <string name="game_five_easy_label">5x5 NORMAL</string>
+    <string name="game_five_hard_label">5x5 HARD</string>
     <string name="result_label">RESULT</string>
     <string name="how_to_play_label">HOW TO PLAY</string>
 
@@ -21,7 +22,8 @@
     <string name="easy">NORMAL</string>
     <string name="hard">HARD</string>
 
-    <string name="game_result">ミス数</string>
+    <string name="game_result">ミス</string>
+    <string name="time_result">タイム</string>
     <string name="dialog_title">結果</string>
     <string name="dialog_massage">結果の内容：ミスの数など</string>
 
@@ -31,5 +33,7 @@
     <string name="total_game_count_text_after">回暇をつぶしました</string>
 
     <string name="how_to_play_content">数字を１から順にタップしましょう\n\n全ての数字を消したらゲームクリアとなります</string>
+
+    <string name="timer_count_down">残り</string>
 
 </resources>

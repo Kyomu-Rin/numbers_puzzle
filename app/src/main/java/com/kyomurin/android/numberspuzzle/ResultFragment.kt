@@ -34,10 +34,19 @@ class ResultFragment : Fragment() {
         val count = getCounts()
 
         val counts = count.first
-        val total = count.second
+        val time = count.second
+
+        val minute = (time / 60).toString()
+        val tmp = time % 60
+
+        val second = if (tmp < 10) {
+            "0$tmp"
+        } else {
+            tmp.toString()
+        }
 
         binding.txResultCounts.text = counts.toString()
-        binding.txResultTotal.text = total.toString()
+        binding.txResultTotal.text = "${minute}:${second}"
 
         setResultComment(counts)
 
@@ -49,7 +58,7 @@ class ResultFragment : Fragment() {
     private fun getCounts(): Pair<Int, Int> {
         val pref = PreferenceManager.getDefaultSharedPreferences(activity)
 
-        return Pair(pref.getInt("COUNT", 0), pref.getInt("TOTAL", 0))
+        return Pair(pref.getInt("COUNT", 0), pref.getInt("TIME", 0))
     }
 
     private fun setResultComment(counts: Int) {

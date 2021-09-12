@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_titleFragment_to_howToPlayFragment"
             app:destination="@id/howToPlayFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_hardFiveFragment"
+            app:destination="@id/hardFiveFragment" />
     </fragment>
     <fragment
         android:id="@+id/easyFiveFragment"
@@ -42,4 +45,15 @@
         android:name="com.kyomurin.android.numberspuzzle.HowToPlayFragment"
         android:label="@string/how_to_play_label"
         tools:layout="@layout/fragment_how_to_play" />
+    <fragment
+        android:id="@+id/hardFiveFragment"
+        android:name="com.kyomurin.android.numberspuzzle.HardFiveFragment"
+        android:label="@string/game_five_hard_label"
+        tools:layout="@layout/fragment_hard_five" >
+        <action
+            android:id="@+id/action_hardFiveFragment_to_resultFragment"
+            app:destination="@id/resultFragment"
+            app:popUpTo="@id/hardFiveFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
