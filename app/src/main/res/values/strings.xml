@@ -35,5 +35,6 @@
     <string name="how_to_play_content">数字を１から順にタップしましょう\n\n全ての数字を消したらゲームクリアとなります</string>
 
     <string name="timer_count_down">残り</string>
+    <string name="time">TIME</string>
 
 </resources>

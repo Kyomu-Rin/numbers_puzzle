@@ -12,23 +12,20 @@ import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
 import com.kyomurin.android.numberspuzzle.databinding.FragmentHardFiveBinding
-import com.kyomurin.android.numberspuzzle.databinding.FragmentResultBinding
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
-import java.util.concurrent.CompletableFuture
 
 class HardFiveFragment : Fragment() {
 
     private var _binding: FragmentHardFiveBinding? = null
     private val binding get() = _binding!!
 
+    var startTime = 0L
+
     var ans = 1
     var mistakesCount = 0
 
     var timer : CountDownTimer? = null
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    var startTime =  LocalDateTime.now()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,13 +50,12 @@ class HardFiveFragment : Fragment() {
             binding.txTimer.text = "%1d:%2$02d".format(minute, second)
         }
 
-        @RequiresApi(Build.VERSION_CODES.O)
         override fun onFinish() {
             isRunning = false
             clearText()
             binding.txTimer.text = "0:00"
 
-            startTime = LocalDateTime.now()
+            startTime = System.currentTimeMillis()
 
             binding.button1.setOnClickListener { onButtonClick(it, temp) }
             binding.button2.setOnClickListener { onButtonClick(it, temp) }
@@ -185,7 +181,6 @@ class HardFiveFragment : Fragment() {
         return numbersList
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     private fun onButtonClick(view: View, numbersList: List<Int>) {
 
         Log.i("check", "EasyFiveFragment onButtonClick() called")
@@ -423,9 +418,10 @@ class HardFiveFragment : Fragment() {
         }
 
         if (ans == 26) {
+            val finishedTime = System.currentTimeMillis()
+            var diff = finishedTime - startTime
 
-            val finishedTime = LocalDateTime.now()
-            val diff = ChronoUnit.SECONDS.between(startTime, finishedTime)
+            diff /= 1000
 
             saveData(mistakesCount, diff.toInt())
             findNavController().navigate(R.id.action_hardFiveFragment_to_resultFragment)

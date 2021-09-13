@@ -1,33 +1,29 @@
 package com.kyomurin.android.numberspuzzle
 
-import android.os.Build
+import android.os.Build.*
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
-import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
 import com.kyomurin.android.numberspuzzle.databinding.FragmentEasyFiveBinding
-import java.time.LocalDateTime
-import java.time.temporal.ChronoUnit
+import java.util.*
 
 class EasyFiveFragment : Fragment() {
 
     private var _binding: FragmentEasyFiveBinding? = null
     private val binding get() = _binding!!
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    var startTime =  LocalDateTime.now()
+    var startTime = 0L
 
     var ans = 1
     var mistakesCount = 0
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
 
         Log.i("check", "EasyFiveFragment onCreateView() called")
@@ -37,7 +33,6 @@ class EasyFiveFragment : Fragment() {
 
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -47,8 +42,7 @@ class EasyFiveFragment : Fragment() {
 
         Log.i("numbersList", "${temp}")
 
-        startTime = LocalDateTime.now()
-        Log.i("checkTime", "startTime = $startTime")
+        startTime = System.currentTimeMillis()
 
         binding.button1.setOnClickListener { onButtonClick(it, temp) }
         binding.button2.setOnClickListener { onButtonClick(it, temp) }
@@ -90,11 +84,13 @@ class EasyFiveFragment : Fragment() {
         11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25)
         val numbersList = nums.shuffled()
 
-        val buttonsList: List<String> = listOf<String>("button1", "button2", "button3", "button4", "button5",
+        val buttonsList: List<String> = listOf<String>(
+            "button1", "button2", "button3", "button4", "button5",
             "button6", "button7", "button8", "button9", "button10",
             "button11", "button12", "button13", "button14", "button15",
             "button16", "button17", "button18", "button19", "button20",
-            "button21", "button22", "button23", "button24", "button25", )
+            "button21", "button22", "button23", "button24", "button25",
+        )
 
         binding.button1.text = numbersList[0].toString()
         binding.button2.text = numbersList[1].toString()
@@ -129,7 +125,6 @@ class EasyFiveFragment : Fragment() {
         return numbersList
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     private fun onButtonClick(view: View, numbersList: List<Int>) {
 
         Log.i("check", "EasyFiveFragment onButtonClick() called")
@@ -367,14 +362,10 @@ class EasyFiveFragment : Fragment() {
         }
 
         if (ans == 26) {
+            val finishedTime = System.currentTimeMillis()
+            var diff = finishedTime - startTime
 
-            val finishedTime = LocalDateTime.now()
-            val diff = ChronoUnit.SECONDS.between(startTime, finishedTime)
-
-
-            Log.i("checkTime", "finishedTime = $finishedTime")
-
-            Log.i("checkTime", "diff = $diff")
+            diff /= 1000
 
             saveData(mistakesCount, diff.toInt())
             findNavController().navigate(R.id.action_easyFiveFragment_to_resultFragment)
