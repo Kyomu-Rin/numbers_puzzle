@@ -34,19 +34,35 @@ class ResultFragment : Fragment() {
         val count = getCounts()
 
         val counts = count.first
-        val time = count.second
+        val diff = count.second
+        val tmp1 = diff % 1000
+
+        val millisecond = when {
+            tmp1 < 10 -> {
+                "00${tmp1}"
+            }
+            tmp1 < 100 -> {
+                "0${tmp1}"
+            }
+            else -> {
+                tmp1.toString()
+            }
+        }
+
+
+        val time = diff / 1000
 
         val minute = (time / 60).toString()
-        val tmp = time % 60
+        val tmp2 = time % 60
 
-        val second = if (tmp < 10) {
-            "0$tmp"
+        val second = if (tmp2 < 10) {
+            "0$tmp2"
         } else {
-            tmp.toString()
+            tmp2.toString()
         }
 
         binding.txResultCounts.text = counts.toString()
-        binding.txResultTotal.text = "${minute}:${second}"
+        binding.txResultTotal.text = "${minute}:${second}.${millisecond}"
 
         setResultComment(counts)
 

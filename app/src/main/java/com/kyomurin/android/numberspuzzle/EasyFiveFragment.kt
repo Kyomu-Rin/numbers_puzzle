@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
@@ -21,6 +22,9 @@ class EasyFiveFragment : Fragment() {
 
     var ans = 1
     var mistakesCount = 0
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -38,11 +42,20 @@ class EasyFiveFragment : Fragment() {
 
         Log.i("check", "EasyFiveFragment onViewCreated() called")
 
-        val temp = createButtonList()
+
+        val buttonsList = listOf(binding.button1, binding.button2, binding.button3, binding.button4, binding.button5,
+            binding.button6, binding.button7, binding.button8, binding.button9, binding.button10,
+            binding.button11, binding.button12, binding.button13, binding.button14, binding.button15,
+            binding.button16, binding.button17, binding.button18, binding.button19, binding.button20,
+            binding.button21, binding.button22, binding.button23, binding.button24, binding.button25,
+        )
+
+        val temp = createButtonList(buttonsList)
 
         Log.i("numbersList", "${temp}")
 
         startTime = System.currentTimeMillis()
+
 
         binding.button1.setOnClickListener { onButtonClick(it, temp) }
         binding.button2.setOnClickListener { onButtonClick(it, temp) }
@@ -76,7 +89,7 @@ class EasyFiveFragment : Fragment() {
 
     }
 
-    private fun createButtonList() : List<Int> {
+    private fun createButtonList(buttonsList : List<Button>) : List<Int> {
 
         Log.i("check", "EasyFiveFragment createButtonList() called")
 
@@ -84,44 +97,10 @@ class EasyFiveFragment : Fragment() {
         11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25)
         val numbersList = nums.shuffled()
 
-        val buttonsList: List<String> = listOf<String>(
-            "button1", "button2", "button3", "button4", "button5",
-            "button6", "button7", "button8", "button9", "button10",
-            "button11", "button12", "button13", "button14", "button15",
-            "button16", "button17", "button18", "button19", "button20",
-            "button21", "button22", "button23", "button24", "button25",
-        )
 
-        binding.button1.text = numbersList[0].toString()
-        binding.button2.text = numbersList[1].toString()
-        binding.button3.text = numbersList[2].toString()
-        binding.button4.text = numbersList[3].toString()
-        binding.button5.text = numbersList[4].toString()
-
-        binding.button6.text = numbersList[5].toString()
-        binding.button7.text = numbersList[6].toString()
-        binding.button8.text = numbersList[7].toString()
-        binding.button9.text = numbersList[8].toString()
-        binding.button10.text = numbersList[9].toString()
-
-        binding.button11.text = numbersList[10].toString()
-        binding.button12.text = numbersList[11].toString()
-        binding.button13.text = numbersList[12].toString()
-        binding.button14.text = numbersList[13].toString()
-        binding.button15.text = numbersList[14].toString()
-
-        binding.button16.text = numbersList[15].toString()
-        binding.button17.text = numbersList[16].toString()
-        binding.button18.text = numbersList[17].toString()
-        binding.button19.text = numbersList[18].toString()
-        binding.button20.text = numbersList[19].toString()
-
-        binding.button21.text = numbersList[20].toString()
-        binding.button22.text = numbersList[21].toString()
-        binding.button23.text = numbersList[22].toString()
-        binding.button24.text = numbersList[23].toString()
-        binding.button25.text = numbersList[24].toString()
-
+        for (i in 0..24) {
+            buttonsList[i].text = numbersList[i].toString()
+        }
         return numbersList
     }
 
@@ -129,246 +108,41 @@ class EasyFiveFragment : Fragment() {
 
         Log.i("check", "EasyFiveFragment onButtonClick() called")
 
-        when (view.id) {
-            R.id.button1 -> {
-                if (numbersList[0] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button1.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
-            R.id.button2 -> {
-                if (numbersList[1] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button2.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
-            R.id.button3 -> {
-                if (numbersList[2] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button3.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
-            R.id.button4 -> {
-                if (numbersList[3] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button4.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
-            R.id.button5 -> {
-                if (numbersList[4] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button5.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
+        val buttonsList = listOf(binding.button1, binding.button2, binding.button3, binding.button4, binding.button5,
+            binding.button6, binding.button7, binding.button8, binding.button9, binding.button10,
+            binding.button11, binding.button12, binding.button13, binding.button14, binding.button15,
+            binding.button16, binding.button17, binding.button18, binding.button19, binding.button20,
+            binding.button21, binding.button22, binding.button23, binding.button24, binding.button25,
+        )
 
-            R.id.button6 -> {
-                if (numbersList[5] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button6.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
-            R.id.button7 -> {
-                if (numbersList[6] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button7.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
-            R.id.button8 -> {
-                if (numbersList[7] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button8.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
-            R.id.button9 -> {
-                if (numbersList[8] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button9.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
-            R.id.button10 -> {
-                if (numbersList[9] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button10.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
+        val buttonIds = listOf(
+            R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5,
+            R.id.button6, R.id.button7, R.id.button8, R.id.button9, R.id.button10,
+            R.id.button11, R.id.button12, R.id.button13, R.id.button14, R.id.button15,
+            R.id.button16, R.id.button17, R.id.button18, R.id.button19, R.id.button20,
+            R.id.button21, R.id.button22, R.id.button23, R.id.button24, R.id.button25,
+            )
 
-            R.id.button11 -> {
-                if (numbersList[10] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button11.visibility = View.INVISIBLE
+        for (i in 0..24) {
+            if (view.id == buttonIds[i]){
+                if (numbersList[i] == ans) {
+                    buttonsList[i].visibility = View.INVISIBLE
                     ans += 1
                 } else {
                     mistakesCount += 1
                 }
-            }
-            R.id.button12 -> {
-                if (numbersList[11] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button12.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
-            R.id.button13 -> {
-                if (numbersList[12] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button13.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
-            R.id.button14 -> {
-                if (numbersList[13] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button14.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
-            R.id.button15 -> {
-                if (numbersList[14] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button15.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
 
-            R.id.button16 -> {
-                if (numbersList[15] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button16.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
-            R.id.button17 -> {
-                if (numbersList[16] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button17.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
-            R.id.button18 -> {
-                if (numbersList[17] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button18.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
-            R.id.button19 -> {
-                if (numbersList[18] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button19.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
-            R.id.button20 -> {
-                if (numbersList[19] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button20.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
+                if (ans == 26) {
+                    val finishedTime = System.currentTimeMillis()
+                    var diff = finishedTime - startTime
 
-            R.id.button21 -> {
-                if (numbersList[20] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button21.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
-            R.id.button22 -> {
-                if (numbersList[21] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button22.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
-            R.id.button23 -> {
-                if (numbersList[22] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button23.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
-            R.id.button24 -> {
-                if (numbersList[23] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button24.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
-            R.id.button25 -> {
-                if (numbersList[24] == ans) {
-                    // 正解だったら見えなくする & ansを次の数に変更
-                    binding.button25.visibility = View.INVISIBLE
-                    ans += 1
-                } else {
-                    mistakesCount += 1
-                }
-            }
-        }
+                    saveData(mistakesCount, diff.toInt())
 
-        if (ans == 26) {
-            val finishedTime = System.currentTimeMillis()
-            var diff = finishedTime - startTime
+                    findNavController().navigate(R.id.action_easyFiveFragment_to_resultFragment)
+                }
 
-            diff /= 1000
-
-            saveData(mistakesCount, diff.toInt())
-            findNavController().navigate(R.id.action_easyFiveFragment_to_resultFragment)
+                break
+            }
         }
     }
 
