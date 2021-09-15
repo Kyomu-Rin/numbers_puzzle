@@ -56,13 +56,13 @@ class HardFiveFragment : Fragment() {
         override fun onTick(millisUntilFinished: Long) {
             val minute = millisUntilFinished / 1000L / 60L
             val second = millisUntilFinished / 1000L % 60L
-            binding.txTimer.text = "%1d:%2$02d".format(minute, second)
+            binding.txTimerFive.text = "%1d:%2$02d".format(minute, second)
         }
 
         override fun onFinish() {
             isRunning = false
             clearText(buttonsList)
-            binding.txTimer.text = "0:00"
+            binding.txTimerFive.text = "0:00"
 
             startTime = System.currentTimeMillis()
 
@@ -103,9 +103,9 @@ class HardFiveFragment : Fragment() {
 
         Log.i("check", "HardFiveFragment onViewCreated() called")
 
-        binding.txTimer.text = "0:30"
+        binding.txTimerFive.text = "0:45"
 
-        timer = CountDown(30 * 1000, 100)
+        timer = CountDown(45 * 1000, 100)
         timer?.start()
     }
 

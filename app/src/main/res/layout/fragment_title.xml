@@ -68,10 +68,18 @@
         app:layout_constraintTop_toBottomOf="@+id/txTitle">
 
         <RadioButton
-            android:id="@+id/rbFive"
+            android:id="@+id/rbFour"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
+            android:text="@string/game_four"
+            android:textSize="@dimen/normal_text" />
+
+        <RadioButton
+            android:id="@+id/rbFive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
             android:text="@string/game_five"
             android:textSize="@dimen/normal_text" />
 
@@ -80,13 +88,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/game_six"
-            android:textSize="@dimen/normal_text" />
-
-        <RadioButton
-            android:id="@+id/rbSeven"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/game_seven"
             android:textSize="@dimen/normal_text" />
 
     </RadioGroup>

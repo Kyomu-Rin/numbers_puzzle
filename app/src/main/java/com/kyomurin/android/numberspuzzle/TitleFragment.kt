@@ -16,7 +16,7 @@ class TitleFragment : Fragment() {
     private var _binding: FragmentTitleBinding? = null
     private val binding get() = _binding!!
 
-    var selectedGame = 5
+    var selectedGame = 4
     var diff = 1
 
     override fun onCreateView(
@@ -39,10 +39,10 @@ class TitleFragment : Fragment() {
         val gameGroup: RadioGroup = view.findViewById(R.id.radioGroupGame)
         gameGroup.setOnCheckedChangeListener {_, checkedId: Int ->
             when (checkedId) {
+                R.id.rbFour -> selectedGame = 4
                 R.id.rbFive -> selectedGame = 5
                 R.id.rbSix -> selectedGame = 6
-                R.id.rbSeven -> selectedGame = 7
-                else -> selectedGame = 5
+                else -> selectedGame = 4
             }
         }
 
@@ -62,8 +62,18 @@ class TitleFragment : Fragment() {
                 } else {
                     findNavController().navigate(R.id.action_titleFragment_to_hardFiveFragment)
                 }
+            } else if (selectedGame == 6){
+                if (diff == 1) {
+                    findNavController().navigate(R.id.action_titleFragment_to_easySixFragment)
+                } else {
+                    findNavController().navigate(R.id.action_titleFragment_to_hardSixFragment)
+                }
             } else {
-                Toast.makeText(activity, "others", Toast.LENGTH_LONG).show()
+                if (diff == 1) {
+                    findNavController().navigate(R.id.action_titleFragment_to_easyFourFragment)
+                } else {
+                    findNavController().navigate(R.id.action_titleFragment_to_hardFourFragment)
+                }
             }
         }
 

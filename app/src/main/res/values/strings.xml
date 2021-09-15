@@ -3,8 +3,12 @@
     <string name="action_settings">Settings</string>
 
     <string name="title_label">NUMBERS PUZZLE</string>
+    <string name="game_four_easy_label">4x4 NORMAL</string>
+    <string name="game_four_hard_label">4x4 HARD</string>
     <string name="game_five_easy_label">5x5 NORMAL</string>
     <string name="game_five_hard_label">5x5 HARD</string>
+    <string name="game_six_easy_label">6x6 NORMAL</string>
+    <string name="game_six_hard_label">6x6 HARD</string>
     <string name="result_label">RESULT</string>
     <string name="how_to_play_label">HOW TO PLAY</string>
 
@@ -15,9 +19,9 @@
     <string name="select_radio_game">数字の数を選択</string>
     <string name="select_radio_diff">難易度を選択</string>
 
+    <string name="game_four">4x4</string>
     <string name="game_five">5x5</string>
     <string name="game_six">6x6</string>
-    <string name="game_seven">7x7</string>
 
     <string name="easy">NORMAL</string>
     <string name="hard">HARD</string>
@@ -32,9 +36,14 @@
     <string name="total_game_count_text_before">あなたはこれまでに合計</string>
     <string name="total_game_count_text_after">回暇をつぶしました</string>
 
-    <string name="how_to_play_content">数字を１から順にタップしましょう\n\n全ての数字を消したらゲームクリアとなります</string>
+    <string name="how_to_play_content">
+        数字を１から順にタップするだけ！\n\n全ての数字を消したらゲームクリア！！\n\n\n
+        HARDモードでは一定の時間で数字が見えなくなるので、全ての位置を覚えてね
+    </string>
 
     <string name="timer_count_down">残り</string>
     <string name="time">TIME</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

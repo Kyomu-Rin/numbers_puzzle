@@ -19,6 +19,18 @@
         <action
             android:id="@+id/action_titleFragment_to_hardFiveFragment"
             app:destination="@id/hardFiveFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_easySixFragment"
+            app:destination="@id/easySixFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_hardSixFragment"
+            app:destination="@id/hardSixFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_easyFourFragment"
+            app:destination="@id/easyFourFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_hardFourFragment"
+            app:destination="@id/hardFourFragment" />
     </fragment>
     <fragment
         android:id="@+id/easyFiveFragment"
@@ -54,6 +66,50 @@
             android:id="@+id/action_hardFiveFragment_to_resultFragment"
             app:destination="@id/resultFragment"
             app:popUpTo="@id/hardFiveFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/easySixFragment"
+        android:name="com.kyomurin.android.numberspuzzle.EasySixFragment"
+        android:label="@string/game_six_easy_label"
+        tools:layout="@layout/fragment_easy_six" >
+        <action
+            android:id="@+id/action_easySixFragment_to_resultFragment"
+            app:destination="@id/resultFragment"
+            app:popUpTo="@id/easySixFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/hardSixFragment"
+        android:name="com.kyomurin.android.numberspuzzle.HardSixFragment"
+        android:label="@string/game_six_hard_label"
+        tools:layout="@layout/fragment_hard_six" >
+        <action
+            android:id="@+id/action_hardSixFragment_to_resultFragment"
+            app:destination="@id/resultFragment"
+            app:popUpTo="@id/hardSixFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/easyFourFragment"
+        android:name="com.kyomurin.android.numberspuzzle.EasyFourFragment"
+        android:label="@string/game_four_easy_label"
+        tools:layout="@layout/fragment_easy_four" >
+        <action
+            android:id="@+id/action_easyFourFragment_to_resultFragment"
+            app:destination="@id/resultFragment"
+            app:popUpTo="@id/easyFourFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/hardFourFragment"
+        android:name="com.kyomurin.android.numberspuzzle.HardFourFragment"
+        android:label="@string/game_four_hard_label"
+        tools:layout="@layout/fragment_hard_four" >
+        <action
+            android:id="@+id/action_hardFourFragment_to_resultFragment"
+            app:destination="@id/resultFragment"
+            app:popUpTo="@id/hardFourFragment"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>

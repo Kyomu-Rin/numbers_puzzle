@@ -64,8 +64,6 @@ class ResultFragment : Fragment() {
         binding.txResultCounts.text = counts.toString()
         binding.txResultTotal.text = "${minute}:${second}.${millisecond}"
 
-        setResultComment(counts)
-
         binding.btReturnTitleResult.setOnClickListener {
             findNavController().navigate(R.id.action_resultFragment_to_titleFragment)
         }
@@ -75,18 +73,6 @@ class ResultFragment : Fragment() {
         val pref = PreferenceManager.getDefaultSharedPreferences(activity)
 
         return Pair(pref.getInt("COUNT", 0), pref.getInt("TIME", 0))
-    }
-
-    private fun setResultComment(counts: Int) {
-        var text = "GOOD"
-
-        if (counts == 0) {
-            text = "PERFECT"
-        } else if (counts <= 5) {
-            text = "GREAT"
-        }
-
-        binding.txResultComment.text = text
     }
 
     override fun onDestroyView() {
